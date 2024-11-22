@@ -1,0 +1,201 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+#threejs-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Ensure it stays behind content */
+}
+
+.parallax {
+    position: relative;
+    z-index: 2; 
+}
+
+.scene {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero Section */
+
+/* Team Info Section (Top Left) */
+.team-info {
+    position: absolute;
+    top: 1%;
+    left: 2%;
+    background-color: rgba(79, 79, 79, 0);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.team-logo h3 {
+    font-size: 2rem;
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #1e4240;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.team-members {
+    font-size: 1.2rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.team-members li {
+    margin-bottom: 8px;
+    font-style: italic;
+    color: #fff;
+}
+
+/* Manifesto Section (Top Right) */
+.manifesto {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    color: #b0b0b0;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+}
+
+.manifesto h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d0d0d0;
+    margin-bottom: 10px;
+}
+
+.manifesto p {
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #b0b0b0;
+}
+
+/* Adjustments for text and hover effects */
+.tagline {
+    font-size: 3rem;
+    display: inline-block;
+    opacity: 1;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover effect for tagline */
+.tagline:hover {
+    color: #000000;
+    transform: scale(1.1);
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 215, 0, 0.7);
+}
+
+/* Hover Effects for Team Info and Manifesto */
+.team-info:hover, .manifesto:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Content Visibility Transitions */
+.content {
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    padding: 20px;
+}
+
+/* Subtext, Heading, and Description Styles */
+.subtext, .heading, .description {
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Hover Effects for Subtext */
+.subtext:hover, .heading:hover, .description:hover {
+    color: #000000;
+    transform: scale(1.05);
+}
+
+/* Fade-in effect for subtext, heading, description */
+.subtext, .heading, .description {
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* CTA Button Styling */
+.cta-button {
+    padding: 15px 30px;
+    background-color: #fff;
+    color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #007BFF;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Hero Section Styling */
+.scene.hero {
+    position: relative;
+    z-index: 3;
+    background: url('hero-background.jpg') center/cover no-repeat;
+  }
+/* Entrepreneurs Section Styling */
+.entrepreneurs {
+    background: url('entrepreneurs-background.jpg') center/cover no-repeat;
+}
+
+/* Craftsmen Section Styling */
+.craftsmen {
+    background: url('craftsmen-background.jpg') center/cover no-repeat;
+}
+
+/* CTA Section Styling */
+.cta {
+    background: linear-gradient(to right, #808080, #A9A9A9);
+    padding: 40px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
