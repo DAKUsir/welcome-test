@@ -8,18 +8,9 @@ body, html {
     height: 100%;
 }
 
-#threejs-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1; /* Ensure it stays behind content */
-}
 
 .parallax {
     position: relative;
-    z-index: 2; 
 }
 
 .scene {
@@ -101,6 +92,7 @@ body, html {
 .tagline {
     font-size: 3rem;
     display: inline-block;
+    top: -50px; /* Move 50px upwards */
     opacity: 1;
     color: #fff;
     position: relative;
@@ -108,6 +100,14 @@ body, html {
     transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
+.subtext {
+    position: relative; /* Ensure it can be adjusted */
+    top: -40px; /* Move 40px upwards */
+    text-align: center; /* Keep it centered */
+    font-size: 1.5rem; /* Adjust as needed */
+    color: #fff;
+    opacity: 0.8;
+}
 /* Hover effect for tagline */
 .tagline:hover {
     color: #000000;
@@ -173,21 +173,20 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Hero Section Styling */
 .scene.hero {
-    position: relative;
-    z-index: 3;
     background: url('hero-background.jpg') center/cover no-repeat;
-  }
-/* Entrepreneurs Section Styling */
-.entrepreneurs {
+}
+
+.scene.entrepreneurs {
     background: url('entrepreneurs-background.jpg') center/cover no-repeat;
 }
 
-/* Craftsmen Section Styling */
-.craftsmen {
+.scene.craftsmen {
     background: url('craftsmen-background.jpg') center/cover no-repeat;
 }
+
+
+
 
 /* CTA Section Styling */
 .cta {
@@ -198,4 +197,99 @@ body, html {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+.scene {
+    position: relative;
+    transition: background 1s ease-in-out; /* Smooth background change */
+    z-index: 0;
+}
+
+.scene::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Copy the background from the scene */
+    filter: blur(15px); /* Apply blur effect */
+    opacity: 0; /* Start transparent */
+    transition: opacity 0.5s ease; /* Smooth transition for blur */
+    z-index: 1;
+    pointer-events: none; /* Ensure it doesn't interfere with clicks */
+}
+
+.scene.active::before {
+    opacity: 1; /* Blur becomes visible during transition */
+}
+/* Ensure the canvas fits within the hero section */
+.scene.hero {
+    position: relative;
+}
+
+#three-button {
+    position: absolute;
+    top: 90%; /* Lowered position */
+    left: 53%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 10;
+    pointer-events: none; /* Allow clicks only where handled in JS */
+}
+#three-button2 {
+    position: absolute;
+    top: 170%; /* Lowered position */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 10;
+    pointer-events: none; /* Allow clicks only where handled in JS */
+}
+/* Mute/Unmute Button */
+.mute-button {
+    position: fixed; /* Fixed position on the screen */
+    bottom: 20px; /* Distance from the bottom */
+    left: 20px; /* Distance from the left */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* White border */
+    color: #fff; /* Text color */
+    font-size: 1.5rem; /* Icon size */
+    padding: 10px 15px; /* Spacing inside the button */
+    border-radius: 50%; /* Circular shape */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
+    z-index: 1000; /* Ensure it stays above all content */
+}
+
+/* Button Hover Effect */
+.mute-button:hover {
+    background: rgba(255, 255, 255, 0.8); /* Slightly lighter background */
+    color: #000; /* Change text color */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Optional: Make it blend with the background */
+.mute-button:focus {
+    outline: none; /* Remove default focus outline */
+}
+/* Adjust positioning for second scene (Entrepreneurs Section) */
+.scene.entrepreneurs .content {
+    position: relative; /* Allow top positioning */
+    top: -200px; /* Move the content upward by 50px */
+    text-align: center; /* Center the text horizontally */
+    margin: 0 auto; /* Center the content within the section */
+    max-width: 800px; /* Optional: Limit the width for better readability */
+}
+
+/* Adjust text appearance for clarity */
+.scene.entrepreneurs .heading {
+    font-size: 2.5rem; /* Adjust font size */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+.scene.entrepreneurs .description {
+    font-size: 1.2rem; /* Adjust font size */
+    opacity: 0.9; /* Slight transparency for a modern look */
 }
